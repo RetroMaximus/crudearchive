@@ -88,11 +88,9 @@ CrudeArchiveManager.exe  # Windows
 Installation
 Option 1: Direct Copy (No Installation)
 
-    Download the crudearch folder
-
-    Place it in your project directory
-
-    Import as shown in the examples above
+- Download the crudearch folder
+- Place it in your project directory
+- Import as shown in the examples above
 
 Option 2: Pip Install (Coming Soon) - bash
 ```bash
@@ -100,15 +98,15 @@ pip install crudearch
 ```
 Roadmap
 
-    Core archive functionality (v1.0)
+- Core archive functionality (v1.0)
 
-    Graphical interface (v1.0)
+- Graphical interface (v1.0)
 
-    Windows executable (v1.1)
+- Windows executable (v1.1)
 
-    macOS application bundle (v1.2)
+- macOS application bundle (v1.2)
 
-    Linux AppImage (v1.2)
+- Linux AppImage (v1.2)
 
 Current vs. Planned
 Component	Status	Notes
@@ -126,6 +124,6 @@ Donate
 ☕ Buy me a coffee
 License
 
-MIT License - Free for personal and commercial use.
+UnLicense use.
 See LICENSE for details.
 
