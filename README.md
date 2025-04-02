@@ -27,7 +27,7 @@ crudearch/
 ├── common.py          # Shared utilities
 ├── HOW_TO_USE.md.py   # Detailed how to use document
 ├── manager.py         # GUI application
-├── README.py         # read before using important information described
+├── README.py          # Read before using important information described
 └── setup.py           # Setup install via pip
 ```
 Key Features
