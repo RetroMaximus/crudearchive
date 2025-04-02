@@ -26,6 +26,7 @@ crudearch/
 ├── archive_handler.py  # Core operations
 ├── common.py          # Shared utilities
 └── manager.py         # GUI application
+└── setup.py         # Setup install via pip
 ```
 Key Features
 Core Functionality
