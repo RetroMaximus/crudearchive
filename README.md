@@ -57,8 +57,8 @@ Import entire directories at once
 Automatic dark/light mode matching system preference
 
 
-GUI Progress | 100%25
-EXE Progress | 80%25
+![GUI Progress](https://img.shields.io/badge/GUI_stable-100%25-brightgreen)
+![EXE Progress](https://img.shields.io/badge/EXE_builds-80%25-yellow)
 
 
 Getting Started
@@ -108,13 +108,17 @@ Roadmap
 
 - Linux AppImage (v1.2)
 
-Current vs. Planned
-Component	Status	Notes
-Python API	✅ Stable	Full functionality
-GUI (source)	✅ Stable	Run with Python
-Windows EXE	🔄 Beta Testing	Coming v1.1
-macOS App	🛠 In Development	Planned v1.2
-Linux Binaries	🛠 In Development	Planned v1.2
+
+
+### Current vs. Planned
+
+| Component         | Status            | Notes                     |
+|-------------------|-------------------|---------------------------|
+| Python API        | ✅ Stable         | Full functionality        |
+| GUI (source)      | ✅ Stable         | Run with Python           |
+| Windows EXE       | 🔄 Beta Testing   | Coming v1.1               |
+| macOS App         | 🛠 In Development | Planned v1.2              |
+| Linux Binaries    | 🛠 In Development | Planned v1.2              |
 
 Support This Project
 
