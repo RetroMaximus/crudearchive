@@ -59,7 +59,8 @@ Automatic dark/light mode matching system preference
 
 GUI Progress | 100%25
 EXE Progress | 80%25
-
+GUI Progress
+EXE Progress
 
 Getting Started
 
