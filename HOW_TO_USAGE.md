@@ -58,7 +58,7 @@ archive.add_text_data("notes.txt", "Important project notes")
 
 # Step 4: Save
 archive.save()
-
+```
 Key Methods
 Method	Description
 add_file()	Add any file type from disk
