@@ -41,31 +41,6 @@ Core Functionality
 | Drag-and-drop         | ✔️    | ❌    | Easily add files directly in the application                 |
 | Dark/light mode       | ✔️    | ❌    | Automatic dark/light mode matching system preference         |
 
-✔ Complete Archive Management
-Create, read, update, and delete archives with a simple API
-
-✔ In-Memory Operations
-Work with data directly without temporary files
-
-✔ Text & Binary Support
-Store JSON, text files, Python scripts, or any binary data
-GUI Features
-
-✔ Visual Archive Management
-Create/open/save archives through intuitive interface
-
-✔ Drag-and-Drop Support
-Easily add files from your file manager
-
-✔ Content Preview
-View text files directly in the application
-
-✔ Bulk Operations
-Import entire directories at once
-
-✔ Theme Support
-Automatic dark/light mode matching system preference
-
 
 ![GUI Progress](https://img.shields.io/badge/GUI_stable-100%25-brightgreen)
 ![EXE Progress](https://img.shields.io/badge/EXE_builds-80%25-yellow)
