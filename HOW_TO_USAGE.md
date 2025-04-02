@@ -68,11 +68,10 @@ get_file()	Retrieve raw file content
 get_file_as_text()	Get content as decoded string
 <a name="gui-manager"></a>3. Using the GUI Manager
 Launching the GUI
-bash
-Copy
 
+```bash
 python -m crudearch.manager
-
+```
 First-Time Walkthrough
 
     Create a new archive (File → New)
@@ -100,9 +99,7 @@ Hotkeys
 
 <a name="common-operations"></a>4. Common Operations
 Programmatic
-python
-Copy
-
+``` python
 # Extract JSON data
 config_data = json.loads(archive.get_file_as_text("config.json"))
 
@@ -112,7 +109,7 @@ archive.add_text_data("notes.txt", "Updated notes content")
 # List all files
 for filename in archive.list_files():
     print(filename)
-
+```
 GUI Operations
 
     Import folder: File → Import Directory
