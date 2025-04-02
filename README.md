@@ -61,7 +61,6 @@ archive.create("project.crudearch")
 archive.add_dict_as_json("config.json", {"app": "Crude Archive", "version": 1.0})
 archive.save()
 ```
-![Description of image 1](images/crudearchive_001.png)
 
 For End Users - bash
 
@@ -69,6 +68,8 @@ For End Users - bash
 ```bash
 python -m crudearch/manager.py
 ```
+![Description of image 1](images/crudearchive_001.png)
+
 # Coming soon - standalone executables:
 ./CrudeArchiveManager  # Linux/macOS
 CrudeArchiveManager.exe  # Windows
