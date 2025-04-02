@@ -68,6 +68,11 @@ Launching the GUI
 ```bash
 python -m crudearch.manager
 ```
+or
+```bash
+python -m crudearch/manager.py
+```
+
 
 First-Time Walkthrough
 
