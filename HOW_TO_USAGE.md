@@ -32,11 +32,8 @@ cd crudarchive
 Basic Workflow
 
 1. Initialize a new archive handler
-
 2. Create/Load an archive file
-
 3. Perform operations (add/remove/extract)
-
 4. Save changes
 
 Example: Creating an Archive
