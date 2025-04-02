@@ -31,18 +31,18 @@ cd crudarchive
 ## <a name="archivehandler"></a>2. Using ArchiveHandler
 Basic Workflow
 
-Initialize a new archive handler
+1. Initialize a new archive handler
 
-Create/Load an archive file
+2. Create/Load an archive file
 
-Perform operations (add/remove/extract)
+3. Perform operations (add/remove/extract)
 
-Save changes
+4. Save changes
 
 Example: Creating an Archive
-```
+
 ```python
-Copy
+
 
 from crudearch import CrudeArchiveHandler
 
