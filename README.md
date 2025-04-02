@@ -27,7 +27,7 @@ crudearch/
 ├── archive_handler.py  # Core operations
 ├── common.py          # Shared utilities
 └── manager.py         # GUI application
-
+```
 Key Features
 Core Functionality
 
@@ -68,17 +68,19 @@ For Python Developers - python
 from crudearch import CrudeArchiveHandler
 
 # Create and use an archive
+```python
 archive = CrudeArchiveHandler("project.crudearch")
 archive.create("project.crudearch")
 archive.add_dict_as_json("config.json", {"app": "Crude Archive", "version": 1.0})
 archive.save()
-
+```
 
 For End Users - bash
 
 # Run the GUI from source
+```bash
 python -m crudearch/manager.py
-
+```
 # Coming soon - standalone executables:
 ./CrudeArchiveManager  # Linux/macOS
 CrudeArchiveManager.exe  # Windows
@@ -93,9 +95,9 @@ Option 1: Direct Copy (No Installation)
     Import as shown in the examples above
 
 Option 2: Pip Install (Coming Soon) - bash
-
+```bash
 pip install crudearch
-
+```
 Roadmap
 
     Core archive functionality (v1.0)
