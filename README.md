@@ -52,10 +52,12 @@ Getting Started
 
 For Python Developers - python
 
-from crudearch import CrudeArchiveHandler
+
 
 # Create and use an archive
 ```python
+from crudearch import CrudeArchiveHandler
+
 archive = CrudeArchiveHandler("project.crudearch")
 archive.create("project.crudearch")
 archive.add_dict_as_json("config.json", {"app": "Crude Archive", "version": 1.0})
