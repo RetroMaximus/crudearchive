@@ -77,7 +77,7 @@ archive.save()
 For End Users - bash
 
 # Run the GUI from source
-python -m crudearch.manager
+python -m crudearch/manager.py
 
 # Coming soon - standalone executables:
 ./CrudeArchiveManager  # Linux/macOS
