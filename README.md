@@ -1,4 +1,3 @@
-
 # Crude Archive Manager
 
 ![Python Version](https://img.shields.io/badge/python-3.7+-blue.svg)
@@ -112,7 +111,3 @@ While this software is completely free, your support helps ensure its continued 
 Donate
 ☕ Buy me a coffee
 License
-
-UnLicense use.
-See LICENSE for details.
-
