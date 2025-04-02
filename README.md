@@ -68,7 +68,7 @@ For End Users - bash
 ```bash
 python -m crudearch/manager.py
 ```
-![Description of image 1](images/crudearchive_001.png)
+![Manager snapshot](images/crudearchive_001.png)
 
 # Coming soon - standalone executables:
 - ./CrudeArchiveManager  # Linux/macOS
