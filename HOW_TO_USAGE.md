@@ -168,7 +168,7 @@ archive.save()
 ```
 
 
-1. Core Archive Operations
+## 1. Core Archive Operations
 
 (All file types)
 
@@ -188,7 +188,7 @@ archive.save()
 
 - add_binary_data(filename: str, text_data: str, file_type: str = None) - Add binary data directly to the archive.
 
-2. Text/Script Files
+## 2. Text/Script Files
 
 (.txt, .json, .xml, .py, etc.)
 
@@ -202,7 +202,7 @@ archive.save()
 
 - add_text_data(filename: str, text_data: str, file_type: str = None) - Add text data directly to the archive.
 
-3. Media Files
+## 3. Media Files
 
 (Images/Audio/Video)
 
@@ -212,7 +212,7 @@ archive.save()
 
 - validate_media_file(data: bytes, file_type: str) -> bool - Check magic numbers
 
-4. 3D Models
+## 4. 3D Models
 
 (.obj, .fbx, .gltf, etc.)
 
@@ -230,7 +230,7 @@ archive.save()
 
 - validate_model_file(data: bytes, file_type: str) -> bool
 
-5. Numeric Data
+## 5. Numeric Data
 
 (.npy, .npz, .hdf5)
 
@@ -238,18 +238,19 @@ archive.save()
 
 - get_numeric_data(name: str) -> np.ndarray - Retrieve as NumPy array
 
-6. Fonts
+## 6. Fonts
 
 (.ttf, .otf)
 
 - add_font(name: str, font_data: bytes) - Add with font validation
 
-7. Utilities
+## 7. Utilities
 
 - get_file_mime_type(filename: str) -> str - Get MIME type (e.g., image/png)
 
 - is_restricted_type(file_type: str) -> bool - Check against blocked types
 
 - import_directory(dir_path: str) - Bulk add files from folder
+
 
 
