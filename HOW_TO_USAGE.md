@@ -68,6 +68,7 @@ Launching the GUI
 ```bash
 python -m crudearch.manager
 ```
+
 First-Time Walkthrough
 
 - Create a new archive (File → New)
@@ -99,6 +100,15 @@ archive.add_text_data("notes.txt", "Updated notes content")
 for filename in archive.list_files():
     print(filename)
 ```
+In a seperate project we will test by puttinng this snippeting into
+the __init__ to see if we can retrive anything when it initializes
+
+![Description of image 2](images/crudearchive_002.png) 
+
+This was a result.
+
+![Description of image 3](images/crudearchive_003.png)
+
 GUI Operations
 
 - Import folder: File → Import Directory
