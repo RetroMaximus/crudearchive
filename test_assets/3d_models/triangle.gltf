@@ -1,0 +1,16 @@
+{
+  "scenes": [{
+    "nodes": [0]
+  }],
+  "nodes": [{
+    "mesh": 0
+  }],
+  "meshes": [{
+    "primitives": [{
+      "attributes": {
+        "POSITION": 0
+      },
+      "indices": 1
+    }]
+  }]
+}
