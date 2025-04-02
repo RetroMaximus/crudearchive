@@ -23,10 +23,12 @@ A lightweight, dependency-free solution for managing custom `.crudearch` file ar
 ```text
 crudearch/
 ├── __init__.py
-├── archive_handler.py  # Core operations
+├── archive_handler.py # Core operations
 ├── common.py          # Shared utilities
+└── HOW_TO_USE.md.py   # Detailed how to use document
 └── manager.py         # GUI application
-└── setup.py         # Setup install via pip
+└── README.py         # read before using important information described
+└── setup.py           # Setup install via pip
 ```
 Key Features
 Core Functionality
