@@ -52,10 +52,12 @@ Getting Started
 
 For Python Developers - python
 
-from crudearch import CrudeArchiveHandler
+
 
 # Create and use an archive
 ```python
+from crudearch import CrudeArchiveHandler
+
 archive = CrudeArchiveHandler("project.crudearch")
 archive.create("project.crudearch")
 archive.add_dict_as_json("config.json", {"app": "Crude Archive", "version": 1.0})
@@ -115,9 +117,7 @@ While this software is completely free, your support helps ensure its continued 
 
 Your support helps maintain and improve CrudeArchive:
 
-[![GitHub Sponsors](https://img.shields.io/badge/Sponsor-%E2%9D%A4-red?logo=GitHub-Sponsors&style=for-the-badge)](https://github.com/sponsors/rfpsystems)
 [![PayPal](https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal&style=for-the-badge)](https://paypal.me/regfportfolio)
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?logo=buy-me-a-coffee&logoColor=black&style=for-the-badge)](https://buymeacoffee.com/rfpsystems)
+
 
 License
-

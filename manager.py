@@ -20,12 +20,13 @@ except ImportError:
             )
 
 class CrudeArchiveManager:
-    """GUI application for managing CRUDE archives"""
+    """GUI application for managing CRUD archives"""
     
     def __init__(self, root):
         self.root = root
-        self.root.title("CRUDE Archive Manager")
+        self.root.title("CRUD Archive Manager")
         self.root.geometry("800x600")
+        
         self.archive_handler = None
         self.current_file = None
         
@@ -35,6 +36,7 @@ class CrudeArchiveManager:
         """Set up the user interface"""
         # Menu bar
         menubar = tk.Menu(self.root)
+        
         file_menu = tk.Menu(menubar, tearoff=0)
         file_menu.add_command(label="New Archive", command=self.new_archive)
         file_menu.add_command(label="Open Archive", command=self.open_archive)
@@ -68,7 +70,6 @@ class CrudeArchiveManager:
         
         self.file_list.bind('<<TreeviewSelect>>', self.on_file_select)
         
-        self.add_export_menu()
         # File preview
         preview_frame = ttk.Labelframe(main_frame, text="File Preview")
         preview_frame.pack(fill=tk.BOTH, expand=True, side=tk.RIGHT)
@@ -79,43 +80,7 @@ class CrudeArchiveManager:
         # Status bar
         self.status_bar = ttk.Label(self.root, text="Ready", relief=tk.SUNKEN)
         self.status_bar.pack(fill=tk.X, side=tk.BOTTOM)
-    
-    def add_export_menu(self):
-        """Add export option to right-click menu"""
-        self.context_menu = tk.Menu(self.root, tearoff=0)
-        self.context_menu.add_command(label="Export File...", command=self.export_file)
-        self.file_list.bind("<Button-3>", self.show_context_menu)
-    
-    
-    def show_context_menu(self, event):
-        """Show right-click menu"""
-        item = self.file_list.identify_row(event.y)
-        if item:
-            self.file_list.selection_set(item)
-            self.context_menu.post(event.x_root, event.y_root)
-
-    def export_file(self):
-        """Export selected file to disk"""
-        selection = self.file_list.selection()
-        if not selection or not self.archive_handler:
-            return
-    
-        filename = self.file_list.item(selection[0])['text']
-        file_info = self.archive_handler.get_file_info(filename)
         
-        save_path = filedialog.asksaveasfilename(
-            initialfile=filename,
-            filetypes=[("All Files", "*.*")]
-        )
-        
-        if save_path:
-            try:
-                with open(save_path, 'wb') as f:
-                    f.write(file_info['content'])
-                self.update_status(f"Exported: {filename} → {save_path}")
-            except Exception as e:
-                messagebox.showerror("Export Error", f"Failed to export file: {str(e)}")
-
     def update_status(self, message: str) -> None:
         """Update the status bar"""
         self.status_bar.config(text=message)
@@ -188,94 +153,26 @@ class CrudeArchiveManager:
                 self.file_list.insert('', 'end', text=filename, values=(file_info['type']))
                 
     def on_file_select(self, event) -> None:
-        """Handle file selection for all supported types"""
+        """Handle file selection"""
         selection = self.file_list.selection()
-        if not selection or not self.archive_handler:
-            return
-    
-        filename = self.file_list.item(selection[0])['text']
-        file_info = self.archive_handler.get_file_info(filename)
-        
-        # Clear previous preview
-        self.preview_text.delete(1.0, tk.END)
-        
-        # Get basic file info
-        file_type = file_info['type'].lower()
-        size = len(file_info['content'])
-        self.preview_text.insert(tk.END, f"File: {filename}\nType: {file_type}\nSize: {size} bytes\n\n")
-        
-        # Handle different file categories
-        if file_type in {'txt', 'json', 'xml', 'py', 'md'}:
+        if selection and self.archive_handler:
+            filename = self.file_list.item(selection[0])['text']
             try:
-                text_content = self.archive_handler.get_file_as_text(filename)
-                self.preview_text.insert(tk.END, text_content)
-            except Exception as e:
-                self.preview_text.insert(tk.END, f"Cannot preview: {str(e)}")
-        
-        elif file_type in {'png', 'jpg', 'jpeg', 'gif', 'bmp'}:
-            self.preview_text.insert(tk.END, "[Binary Image Data - Use Extract to access]")
-        
-        elif file_type in ArchiveCommon.MODEL_FORMATS['static'] | ArchiveCommon.MODEL_FORMATS['animated']:
-            self.preview_text.insert(tk.END, f"[3D Model Data - {file_type.upper()} format]")
-        
-        elif file_type in {'npy', 'npz', 'hdf5'}:
-            self.preview_text.insert(tk.END, "[Numeric Data - Use Extract to access]")
-        
-        else:
-            self.preview_text.insert(tk.END, "[Binary Data - Use Extract to access]")
-
-    def preview_image(self, image_data):
-        """Preview image files while maintaining text widget availability"""
-        try:
-            from PIL import Image, ImageTk
-            import io
-            
-            # Hide text widget temporarily
-            self.preview_text.pack_forget()
-            
-            # Create image preview
-            img = Image.open(io.BytesIO(image_data))
-            img.thumbnail((400, 400))  # Limit size
-            photo = ImageTk.PhotoImage(img)
-            
-            # Create and place image label
-            img_label = tk.Label(self.preview_frame, image=photo)
-            img_label.image = photo  # Keep reference
-            img_label.pack(fill=tk.BOTH, expand=True)
-            
-        except ImportError:
-            self.preview_text.delete(1.0, tk.END)
-            self.preview_text.insert(tk.END, "Install Pillow for image preview")
-            self.preview_text.pack(fill=tk.BOTH, expand=True)
-        except Exception as e:
-            self.preview_text.delete(1.0, tk.END)
-            self.preview_text.insert(tk.END, f"Error previewing image: {str(e)}")
-            self.preview_text.pack(fill=tk.BOTH, expand=True)
+                content = self.archive_handler.get_file_as_text(filename)
+                if content is not None:
+                    self.preview_text.delete(1.0, tk.END)
+                    self.preview_text.insert(tk.END, content)
+                else:
+                    file_info = self.archive_handler.get_file_info(filename)
+                    if file_info:
+                        self.preview_text.delete(1.0, tk.END)
+                        self.preview_text.insert(tk.END, f"Binary content ({len(file_info['content'])} bytes)")
+            except ValueError:
+                file_info = self.archive_handler.get_file_info(filename)
+                if file_info:
+                    self.preview_text.delete(1.0, tk.END)
+                    self.preview_text.insert(tk.END, f"Binary content ({len(file_info['content'])} bytes)")
     
-    def display_file_metadata(self, file_info, filename):
-        """Display comprehensive file metadata in the preview text widget"""
-        metadata = [
-            f"File Name: {filename}",
-            f"File Type: {file_info.get('type', 'Unknown')}",
-            f"Size: {len(file_info.get('content', ''))} bytes",
-            f"Compressed Size: {file_info.get('compress_size', 'N/A')} bytes",
-            f"Modified: {file_info.get('date_time', 'Unknown')}",
-            f"CRC: {file_info.get('CRC', 'N/A')}",
-            f"Comment: {file_info.get('comment', 'None')}",
-            f"Attributes: {file_info.get('external_attr', 'N/A')}",
-            f"System: {file_info.get('create_system', 'N/A')}",
-            f"Version: {file_info.get('extract_version', 'N/A')}",
-            f"Flags: {file_info.get('flag_bits', 'N/A')}",
-            f"Volume: {file_info.get('volume', 'N/A')}",
-            f"Internal Attributes: {file_info.get('internal_attr', 'N/A')}",
-            f"Header Offset: {file_info.get('header_offset', 'N/A')}"
-        ]
-        
-        self.preview_text.delete(1.0, tk.END)
-        for item in metadata:
-            self.preview_text.insert(tk.END, item + "\n")
-
-
     def add_file_dialog(self) -> None:
         """Open dialog to add a file to the archive"""
         if not self.archive_handler:
