@@ -71,8 +71,8 @@ python -m crudearch/manager.py
 ![Description of image 1](images/crudearchive_001.png)
 
 # Coming soon - standalone executables:
-./CrudeArchiveManager  # Linux/macOS
-CrudeArchiveManager.exe  # Windows
+- ./CrudeArchiveManager  # Linux/macOS
+- CrudeArchiveManager.exe  # Windows
 
 Installation
 Option 1: Direct Copy (No Installation)
