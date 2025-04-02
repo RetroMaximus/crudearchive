@@ -62,8 +62,6 @@ archive.add_dict_as_json("config.json", {"app": "Crude Archive", "version": 1.0}
 archive.save()
 ```
 ![Description of image 1](images/crudearchive_001.png)
-![Description of image 2](images/crudearchive_002.png) 
-![Description of image 3](images/crudearchive_003.png)
 
 For End Users - bash
 
