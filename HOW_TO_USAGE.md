@@ -21,7 +21,7 @@ Choose **one** of these methods:
 1. Download the `crudearch` folder
 2. Place it in your project's root directory
 3. Import with `from crudearch import CrudeArchiveHandler`
-```markdown
+
 #### Method B: Git Clone
 ```bash
 git clone https://github.com/yourusername/crudarchive.git
