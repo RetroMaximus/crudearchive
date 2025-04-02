@@ -71,28 +71,21 @@ python -m crudearch.manager
 ```
 First-Time Walkthrough
 
-    Create a new archive (File → New)
+- Create a new archive (File → New)
 
-    Add files:
-
-        Drag-and-drop files into the window, or
-
-        Use Edit → Add File
-
-    Preview files by clicking them
-
-    Save your archive (File → Save)
+1. Add files:
+    - Drag-and-drop files into the window, or
+    - Use Edit → Add File
+2. Preview files by clicking them
+3. Save your archive (File → Save)
 
 GUI Workflow
 Hotkeys
 
-    Ctrl+N: New archive
-
-    Ctrl+O: Open archive
-
-    Ctrl+S: Save
-
-    Del: Remove selected file
+- Ctrl+N: New archive
+- Ctrl+O: Open archive
+- Ctrl+S: Save
+- Del: Remove selected file
 
 <a name="common-operations"></a>4. Common Operations
 Programmatic
@@ -109,8 +102,6 @@ for filename in archive.list_files():
 ```
 GUI Operations
 
-    Import folder: File → Import Directory
-
-    Export file: Right-click → Export
-
-    Switch theme: Edit → Toggle Theme
+- Import folder: File → Import Directory
+- Export file: Right-click → Export
+- Switch theme: Edit → Toggle Theme
