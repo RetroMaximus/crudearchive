@@ -40,7 +40,7 @@ Basic Workflow
     Save changes
 
 Example: Creating an Archive
-python
+```python
 Copy
 
 from crudearch import CrudeArchiveHandler
