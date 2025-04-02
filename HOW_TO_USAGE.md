@@ -122,3 +122,134 @@ GUI Operations
 - Import folder: File → Import Directory
 - Export file: Right-click → Export
 - Switch theme: Edit → Toggle Theme
+
+## OpenGL/Numpy Integration
+
+```python
+from crudearch import CrudeArchiveHandler
+import numpy as np
+from OpenGL.GL import *
+
+def load_model(archive_path, model_name):
+    archive = CrudeArchiveHandler(archive_path)
+    archive.load()
+    
+    if model_name.endswith('.obj'):
+        # Get vertices as numpy array
+        vertices = archive.get_model_as_numpy(model_name)
+        
+        # OpenGL setup
+        vbo = glGenBuffers(1)
+        glBindBuffer(GL_ARRAY_BUFFER, vbo)
+        glBufferData(GL_ARRAY_BUFFER, vertices.nbytes, vertices, GL_STATIC_DRAW)
+        return vbo
+```
+## Animation Handeling
+
+```python
+# Create archive with 3D model
+archive = CrudeArchiveHandler("game_assets.crudearch")
+with open("character.fbx", "rb") as f:
+    archive.add_3d_model("hero.fbx", f.read(), lod_levels=3)
+
+# Access model features
+animations = archive.get_animations("hero.fbx")
+low_poly = archive.get_model_lod("hero.fbx", lod_level=2)
+
+# Update animation at runtime
+new_anim = {
+    "name": "attack",
+    "frames": 24,
+    "tracks": [...] 
+}
+archive.update_model_animation("hero.fbx", new_anim)
+archive.save()
+
+```
+
+
+1. Core Archive Operations
+
+(All file types)
+
+- create(filename: str) - Initialize new archive
+
+- load() - Load existing archive
+
+- save() - Save archive to disk
+
+- list_files() - List all files in archive
+
+- get_file(name: str) -> bytes - Get raw file bytes
+
+- get_file_info(name: str) -> dict - Get file metadata (type/size)
+
+- remove_file(name: str) - Delete file from archive
+
+- add_binary_data(filename: str, text_data: str, file_type: str = None) - Add binary data directly to the archive.
+
+2. Text/Script Files
+
+(.txt, .json, .xml, .py, etc.)
+
+- add_file(name: str, content: Union[bytes, str], file_type: str) - Add text/binary file
+
+- get_file_as_text(name: str, encoding='utf-8') -> str - Decode text content
+
+- add_text_file(name: str, text: str, encoding='utf-8') - Helper for text files
+
+- add_dict_as_json(filename: str, data_dict: dict, indent: int = 2) - Add a dictionary as a JSON file to the archive.
+
+- add_text_data(filename: str, text_data: str, file_type: str = None) - Add text data directly to the archive.
+
+3. Media Files
+
+(Images/Audio/Video)
+
+- add_image(name: str, image_data: bytes) - Add with PNG/JPEG validation
+
+- add_media_file(name: str, file_path: str) - Auto-detect type from path
+
+- validate_media_file(data: bytes, file_type: str) -> bool - Check magic numbers
+
+4. 3D Models
+
+(.obj, .fbx, .gltf, etc.)
+
+- add_3d_model(name: str, file_path: str, optimize=False)
+
+- add_3d_data_model(name: str, data: bytes, lod_levels=1, include_textures=False)
+
+- get_model_lod(name: str, lod_level=0) -> bytes
+
+- get_animations(name: str) -> List[Dict] (NEW)
+
+- update_model_animation(name: str, anim_data: Dict) -> None (NEW)
+
+- get_model_as_numpy(filename: str) -> np.ndarray (NEW)
+
+- validate_model_file(data: bytes, file_type: str) -> bool
+
+5. Numeric Data
+
+(.npy, .npz, .hdf5)
+
+- add_numeric_data(name: str, array: np.ndarray, compress=True) - Add NumPy array
+
+- get_numeric_data(name: str) -> np.ndarray - Retrieve as NumPy array
+
+6. Fonts
+
+(.ttf, .otf)
+
+- add_font(name: str, font_data: bytes) - Add with font validation
+
+7. Utilities
+
+- get_file_mime_type(filename: str) -> str - Get MIME type (e.g., image/png)
+
+- is_restricted_type(file_type: str) -> bool - Check against blocked types
+
+- import_directory(dir_path: str) - Bulk add files from folder
+
+
