@@ -84,7 +84,7 @@ First-Time Walkthrough
 2. Preview files by clicking them
 3. Save your archive (File → Save)
 
-![Description of image 3](images/crudearchive_004.png)
+![Manager snapshot](images/crudearchive_004.png)
 
 GUI Workflow
 Hotkeys
