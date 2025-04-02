@@ -31,13 +31,13 @@ cd crudarchive
 <a name="archivehandler"></a>2. Using ArchiveHandler
 Basic Workflow
 
-    Initialize a new archive handler
+Initialize a new archive handler
 
-    Create/Load an archive file
+Create/Load an archive file
 
-    Perform operations (add/remove/extract)
+Perform operations (add/remove/extract)
 
-    Save changes
+Save changes
 
 Example: Creating an Archive
 ```
