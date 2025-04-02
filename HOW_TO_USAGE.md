@@ -1,5 +1,9 @@
 # Crude Archive - Usage Guide
-
+![Python Version](https://img.shields.io/badge/python-3.7+-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Platforms](https://img.shields.io/badge/platforms-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)
+![Size](https://img.shields.io/badge/install_size-%3C100KB-success)
+![Dependencies](https://img.shields.io/badge/dependencies-none-success)
 ## Table of Contents
 1. [Setup Instructions](#setup)
 2. [Using ArchiveHandler (Programmatic)](#archivehandler)
