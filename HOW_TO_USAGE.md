@@ -103,11 +103,10 @@ for filename in archive.list_files():
 In a seperate project we will test by puttinng this snippeting into
 the __init__ to see if we can retrive anything when it initializes
 
+![Description of image 3](images/crudearchive_003.png)
+This was the result
 ![Description of image 2](images/crudearchive_002.png) 
 
-This was a result.
-
-![Description of image 3](images/crudearchive_003.png)
 
 GUI Operations
 
