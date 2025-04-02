@@ -30,6 +30,16 @@ crudearch/
 ```
 Key Features
 Core Functionality
+### Key Features
+
+| Feature               | GUI   | API   | Description                                                  |
+|-----------------------|-------|-------|--------------------------------------------------------------|
+| Create archives       | ✔️    | ✔️    | Create, read, update, and delete archives with a single API  |
+| Edit archive contents | ✔️    | ✔️    | Work with data                                               |
+| Preview files         | ✔️    | ✔️    | Create/open/save archives through intuitive interface        |
+| Import folders        | ✔️    | ✔️    | Import entire directories at oncc                            |
+| Drag-and-drop         | ✔️    | ❌    | Easily add files directly in the application                 |
+| Dark/light mode       | ✔️    | ❌    | Automatic dark/light mode matching system preference         |
 
 ✔ Complete Archive Management
 Create, read, update, and delete archives with a simple API
