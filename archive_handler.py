@@ -431,7 +431,7 @@ class CrudeArchiveHandler:
             'duration': (struct.unpack('<I', data[40:44])[0] / 
                         (struct.unpack('<I', data[24:28])[0] /
                         struct.unpack('<H', data[22:24])[0] /
-                        (struct.unpack('<H', data[34:36])[0] / 8))
+                        (struct.unpack('<H', data[34:36])[0] / 8)))
         }
     
     def _parse_ogg_header(self, data: bytes) -> dict:
