@@ -27,6 +27,7 @@ class CrudeArchiveManager:
         self.root.title("CRUDE Archive Manager")
         self.root.geometry("800x600")
         self.archive_handler = None
+        self.archive_ext = {"name":"CRUDE Archive", "ext":"crudearch"}
         self.current_file = None
         
         self.setup_ui()
@@ -124,8 +125,8 @@ class CrudeArchiveManager:
     def new_archive(self) -> None:
         """Create a new archive"""
         filename = filedialog.asksaveasfilename(
-            defaultextension=".crudearch",
-            filetypes=[("CRUD Archive", "*.crudearch")]
+            defaultextension=f".{self.archive_ext['ext']}",
+            filetypes=[(f"{self.archive_ext['ext_name']}", f"*.{self.archive_ext['ext']}")]
         )
         
         if filename:
@@ -138,8 +139,8 @@ class CrudeArchiveManager:
     def open_archive(self) -> None:
         """Open an existing archive"""
         filename = filedialog.askopenfilename(
-            defaultextension=".crudearch",
-            filetypes=[("CRUD Archive", "*.crudearch")]
+            defaultextension=f".{self.archive_ext['ext']}",
+            filetypes=[(f"{self.archive_ext['ext_name']}", f"*.{self.archive_ext}[ext]")]
         )
         
         if filename:
@@ -167,8 +168,8 @@ class CrudeArchiveManager:
         """Save the current archive with a new name"""
         if self.archive_handler:
             filename = filedialog.asksaveasfilename(
-                defaultextension=".crudearch",
-                filetypes=[("CRUD Archive", "*.crudearch")]
+                defaultextension=f".{self.archive_ext['ext']}",
+                filetypes=[(f"{self.archive_ext['ext_name']}", f"*.{self.archive_ext['ext']}")]
             )
             
             if filename:
