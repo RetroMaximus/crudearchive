@@ -13,7 +13,7 @@ A lightweight, dependency-free solution for managing custom `.crudearch` file ar
 
 - **Zero Dependencies** - Pure Python (3.7+) using only standard libraries
 - **Dual Interface** - Use programmatically or via intuitive GUI
-- **Small Footprint** - Entire package <100KB
+- **Small Footprint** - Entire package <1MB
 - **Fast Operations** - In-memory buffer management
 - **Cross-Platform** - Works anywhere Python runs
 - **Coming Soon** - Standalone executables for Windows/macOS/Linux
