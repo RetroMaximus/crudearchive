@@ -171,40 +171,40 @@ archive.update_model_animation("hero.fbx", new_anim)
 archive.save()
 
 ```
-## Audio And Video
+# Audio And Video
 
-# Media info
+### Media info
 ```python
 archive = CrudeArchiveHandler("game_assets.crudearch")
 archive.add_image("screenshot.png", image_data)
 archive.add_media_file("background.mp4", "/path/to/video.mp4")
 ```
-# Add and inspect audio
+### Add and inspect audio
 ```python
 archive = CrudeArchiveHandler("game_assets.crudearch")
 archive.add_audio("track.mp3", mp3_data)
 print(archive.get_media_info("track.mp3"))
 ```
-# Add and inspect video
+### Add and inspect video
 ```python
 archive = CrudeArchiveHandler("game_assets.crudearch")
 archive.add_video("clip.mp4", mp4_data)
 print(archive.get_media_info("clip.mp4"))
 ```
-# For Tkinter GUI
+### For Tkinter GUI
 ```python
 archive = CrudeArchiveHandler("game_assets.crudearch")
 cover = archive.get_audio_cover("song.mp3", "tkinter")
 label = tk.Label(image=cover)
 label.image = cover  # Keep reference
 ```
-# For PyGame
+### For PyGame
 ```python
 archive = CrudeArchiveHandler("game_assets.crudearch")
 cover = archive.get_audio_cover("track.flac", "pygame")
 screen.blit(cover, (x, y))
 ```
-# For OpenGL (returns numpy array)
+### For OpenGL (returns numpy array)
 ```python
 archive = CrudeArchiveHandler("game_assets.crudearch")
 cover_array = archive.get_audio_cover("album.mp3", "OPENGL")
@@ -212,48 +212,48 @@ texture = glGenTextures(1)
 glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, *cover_array.shape[:2], 0, 
              GL_RGB, GL_UNSIGNED_BYTE, cover_array)
 ```
-## Working with fonts
+# Working with fonts
 
-# All these work:
+### All these work:
 ```python
 font = archive.get_font("arial.ttf")
 font = archive.get_font("Arial")  # Case-insensitive
 font = archive.get_font("/fonts/arial.ttf")  # Path-style
 ```
-# Get all fonts with basic info
+### Get all fonts with basic info
 ```python
 all_fonts = archive.get_all_fonts()
 ```
-# Get deep metadata for one font
+### Get deep metadata for one font
 ```python
 font_details = archive.get_font_details("arial.ttf")
 ```
-# Adding Fonts
+### Adding Fonts
 ```python
 archive = CrudeArchiveHandler("game_assets.crudearch")
 with open("arial.ttf", "rb") as f:
     archive.add_font("arial.ttf", f.read())
 ```
-# Get raw font data
+### Get raw font data
 ```python
 archive = CrudeArchiveHandler("game_assets.crudearch")
 font_data = archive.get_font("arial")
 ```
-# Get all fonts summary
+### Get all fonts summary
 ```python
 archive = CrudeArchiveHandler("game_assets.crudearch")
 for name, info in archive.get_all_fonts().items():
     print(f"{name}: {info['type']}, {info['size']} bytes")
 ```
-# Get detailed metadata
+### Get detailed metadata
 ```python
 archive = CrudeArchiveHandler("game_assets.crudearch")
 details = archive.get_font_details("arial.ttf")
 print(f"Font contains {details['tables']} tables")
 ``
-## Text System Integration
+# Text System Integration
 
-# PyGame example
+### PyGame example
 ```python
 archive = CrudeArchiveHandler("game_assets.crudearch")
 font_data = archive.get_font("arial.ttf")
@@ -261,26 +261,26 @@ with open("temp_font.ttf", "wb") as f:
     f.write(font_data)
 pygame.font.Font("temp_font.ttf", 16)
 ```
-# PIL/Pillow example
+### PIL/Pillow example
 ```python
 archive = CrudeArchiveHandler("game_assets.crudearch")
 from PIL import ImageFont, ImageDraw
 font_data = archive.get_font("arial.ttf")
 font = ImageFont.truetype(io.BytesIO(font_data), size=12)
 ```
-# Get all fonts with data and metadata
+### Get all fonts with data and metadata
 ```python
 archive = CrudeArchiveHandler("game_assets.crudearch")
 all_fonts = archive.get_all_fonts()
 ```
-# Access font data and metadata
+### Access font data and metadata
 ```python
 for font_name, font_info in all_fonts.items():
     print(f"Font: {font_name}")
     print(f"Size: {len(font_info['data'])} bytes")
     print(f"Tables: {font_info['metadata'].get('tables', 'unknown')}")
 ```    
-# Example: Save font to disk
+### Example: Save font to disk
 ```python
 with open(font_name, "wb") as f:
     f.write(font_info['data'])
